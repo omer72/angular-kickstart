@@ -16,7 +16,7 @@
           sort: '[{fieldName:"captionText", order:"asc"}]'
         }
       });
-    }
+    };
 
     factory.objectData = function(name, pageSize, pageNumber, sort, filter) {
       return $http({
@@ -29,7 +29,15 @@
           sort: sort || ''
         }
       });
-    }
+    };
+
+    factory.postObjectData = function(name, object) {
+      return $http({
+        method: 'POST',
+        url: Backand.getApiUrl() + '/1/objects/' + name,
+        data: object
+      });
+    };
 
     return factory;
 

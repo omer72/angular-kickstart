@@ -46,6 +46,7 @@
       'common.services.backand',
       'common.services.data',
       'common.directives.version',
+      'common.directives.readfile',
       'common.filters.uppercase',
       'common.interceptors.http',
       'templates'

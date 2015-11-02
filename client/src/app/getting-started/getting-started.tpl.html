@@ -1,4 +1,4 @@
-<div class="pure-g island3">
+<div class="pure-g island3" xmlns="http://www.w3.org/1999/html">
   <div class="content pure-u-1">
     <h1>Backand starting point</h1>
     <hr/>
@@ -27,6 +27,8 @@
     <label>Status: {{start.results}}</label>
     <hr/>
 
+
+
     <h3 ng-if="!start.isLoggedIn">List of Objects - Example of using configuration API (Must sign in first)</h3>
     <h3 ng-if="start.isLoggedIn">List of Objects - Example of using configuration API</h3>
     <select class="form-control"
@@ -36,8 +38,18 @@
             ng-change="start.loadObjectData()">
       <option value="">Select an object</option>
     </select>
+    <input type="datetime-local" ng-model="start.selectedDateTime.value">dateTime</input>
+    <button ng-click="start.loadObjectDataFiltered()">Filtered</button>
     <hr/>
     <h3>Object - Example of using data API</h3>
+    <pre>{{start.objectData.length}}</pre>
     <pre>{{start.objectData | json}}</pre>
+
+    <input type="file" on-read-file="start.showContent($fileContent)" />
+    <button ng-click="start.uploadData()">Upload Data</button>
+    <div ng-if="start.content.results.length>0">
+      <h2>File content is:</h2>
+      <pre>{{ start.content.results }}</pre>
+    </div>
   </div>
 </div>
